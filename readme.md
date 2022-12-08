@@ -3,7 +3,7 @@
   
   ## Description 
 
-  This is an expense tracker that allows you to add credits, and debits to your monthly budget. This was built using HTML, CSS, and Javascript. The table rows of the page are added dynamically, and information is saved to local storage. This was also practice to using javascript class components 
+  This is an expense tracker that allows you to add credits, and debits to your monthly budget. This was built using HTML, CSS, and Javascript. The table rows of the page are added dynamically, and information is saved to local storage. This was also practice to using javascript class components.
 
   ## Table of Contents: 
 
@@ -50,6 +50,8 @@
   Email: alexanders.tischner@outlook.com 
 
   ![Image Of Application](assets/images/Expense%20Tracker.png)
+  
+  Deployed: https://sebascrab.github.io/Expense-Tracker/
 
   
 
