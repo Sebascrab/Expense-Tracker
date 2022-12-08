@@ -38,3 +38,26 @@
 .input:focus {
     border-color: #bbbbbb;
 }
+
+.delete-entry {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    background: none;
+    color: red;
+    border: none;
+    border-radius: 50%;
+    outline: none;
+    cursor: pointer;
+}
+
+.delete-entry:hover {
+    background: rgba(225, 0, 0, 0.1);
+}
+
+.controls,
+.summary {
+    text-align: right;
+    
+}
