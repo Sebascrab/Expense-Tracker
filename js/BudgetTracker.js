@@ -37,7 +37,7 @@ export default class BudgetTracker {
             <tfoot>
                 <td colspan="5" class="summary">
                     <strong>Total:</strong>
-                    <span>$0.00</span>
+                    <span class='total'>$0.00</span>
                 </td>
             </tfoot>
         </table>
@@ -76,18 +76,41 @@ export default class BudgetTracker {
       const entries = JSON.parse(localStorage.getItem('budget-tracker-entries') || '[]');
             // on load adds entry to our table
         for (const entry of entries) {
-            this.addEntery(entry);
+            this.addEntry(entry);
         }
         // on initial load updates the summary if there is any informaiton 
         this.updateSummary();
   }
 
   // take current rows and display total amount
-  updateSummary() {}
+  updateSummary() {
+      const total = this.getEntryRows().reduce((total, row) => {
+        const amount = row.querySelector('.input-amount').value;
+        const isExpense = row.querySelector('.input-type').value === 'expense';
+        const modifier = isExpense ? -1 : 1;
+
+        return total + (amount * modifier);
+      }, 0)
+
+      const totalFormated = new Intl.NumberFormat('en-US', {
+          style: 'currency', 
+          currency: 'USD'
+      }).format(total);
+      this.root.querySelector('.total').textContent = totalFormated;
+  }
 
   // save to local storage
   save() {
-    console.log(this.getEntryRows())
+    const data = this.getEntryRows().map(row => {
+        return {
+            date: row.querySelector('.input-date').value,
+            description: row.querySelector('.input-description').value,
+            type: row.querySelector('.input-type').value,
+            amount: parseFloat(row.querySelector('.input-amount').value),
+        };
+    });
+    localStorage.setItem('budget-tracker-entries', JSON.stringify(data));
+    this.updateSummary();
   }
 
   // add new entry in table
@@ -123,6 +146,7 @@ export default class BudgetTracker {
   // button to delete entry
   onDeleteEntryBtnClick(e) {
 
-    console.log('deleted');
+   e.target.closest('tr').remove();
+   this.save();
   }
 }
