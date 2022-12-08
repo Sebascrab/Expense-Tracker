@@ -1,9 +1,23 @@
-
-
+.main-head {
+    display: flex;
+    justify-content: center;
+    font-size: 40px;
+    background-color: tan;
+    padding: 1%;
+    border-radius: 5px;
+}
 
 .budget-tracker {
     border-collapse: collapse;
-    min-width: 750px;
+    min-width: 1000px;
+    margin: auto;
+    margin-top: 5%;
+    background-color: rgb(180, 254, 244);
+    border: solid;
+    border-radius: 15px;
+    border: transparent;
+    
+    
 }
 
 .budget-tracker * {
@@ -13,7 +27,7 @@
 .budget-tracker th {
     text-align: left;
     padding: 10px 20px;
-    border-bottom: 2.5px solid black;
+    border-bottom: 2.5px solid rgba(76, 121, 236, 0.662);
 }
 
 .budget-tracker td {
@@ -37,6 +51,16 @@
 
 .input:focus {
     border-color: #bbbbbb;
+}
+
+.new-entry {
+    border-radius: 5px;
+    width: 100px;
+    height: 35px;
+    border: none;
+    background-color: rgba(76, 121, 236, 0.662);
+    cursor: pointer;
+    color: white;
 }
 
 .delete-entry {

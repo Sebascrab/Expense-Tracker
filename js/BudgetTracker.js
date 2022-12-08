@@ -52,7 +52,7 @@ export default class BudgetTracker {
             <input type="date" class="input input-date">
         </td>
         <td>
-            <input type="text" class="input input-description" placeholder="wages. bills yadya">
+            <input type="text" class="input input-description" placeholder="Income, Expenses, etc.">
         </td>
         <td>
             <select class="input input-type">
